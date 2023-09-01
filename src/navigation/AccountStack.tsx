@@ -10,6 +10,7 @@ import RecentlyViewScreen from '../screens/RecentlyViewScreen';
 import OrderScreen from '../screens/OrderScreen';
 import InvoiceScreen from '../screens/InvoiceScreen';
 import ClaimScreen from '../screens/ClaimScreen';
+import SignUpScreen from '../screens/SignUpScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +31,7 @@ const AccountStack = () => {
       <Stack.Screen name="NotificationScreen" component={NotificationScreen} />
       <Stack.Screen name="AddressBookScreen" component={AddressBookScreen} />
       <Stack.Screen name="RecentlyViewScreen" component={RecentlyViewScreen} />
+      <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
     </Stack.Navigator>
   );
 };

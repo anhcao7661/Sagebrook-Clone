@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import React, {useEffect, useRef, useState} from 'react';
 import {
   Dimensions,
@@ -19,6 +20,8 @@ const Carousel: React.FC = () => {
   const flatlistRef = useRef<FlatList<CarouselItem>>(null);
 
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const navigation = useNavigation();
 
   const carouselData: CarouselItem[] = [
     {
@@ -107,10 +110,10 @@ const Carousel: React.FC = () => {
   };
 
   const renderItem = ({item}: {item: CarouselItem}) => (
-    <View style={{display: 'flex', position: 'relative'}}>
+    <TouchableOpacity style={{display: 'flex', position: 'relative'}}>
       <Image source={item.image} style={{height: 200, width: screenWidth}} />
       <Text style={styles.text}>{item.title}</Text>
-    </View>
+    </TouchableOpacity>
   );
 
   return (

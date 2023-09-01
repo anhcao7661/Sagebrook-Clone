@@ -11,10 +11,13 @@ import {
 import Carousel from '../components/Carousel';
 import {TouchableOpacity} from 'react-native';
 import CategoryContainer from '../components/CategoryContainer';
+import Icon from 'react-native-vector-icons/FontAwesome6';
+import {ParamListBase, useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 const HomeScreen = () => {
   const screenWidth = Dimensions.get('window').width;
-
+  const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
   return (
     <SafeAreaView style={{flex: 1}}>
       <View
@@ -30,6 +33,9 @@ const HomeScreen = () => {
           }}>
           SAGEBROOK HOME
         </Text>
+        <TouchableOpacity onPress={() => navigation.navigate('ProductsScreen')}>
+          <Icon name="star" size={20} />
+        </TouchableOpacity>
       </View>
       <ScrollView>
         <Carousel />
