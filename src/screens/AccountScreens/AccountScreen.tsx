@@ -10,7 +10,7 @@ import Icon from 'react-native-vector-icons/FontAwesome6';
 import {Divider} from '@rneui/themed';
 import {useNavigation, ParamListBase} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import AccountScreenItem from '../components/AccountScreenItem';
+import AccountScreenItem from '../../components/AccountScreenItem';
 const AccountScreen = () => {
   const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
 

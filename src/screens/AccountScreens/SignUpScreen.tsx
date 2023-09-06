@@ -7,16 +7,15 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome6';
-import {ParamListBase, useNavigation} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import {Divider} from '@rneui/themed';
 import {TextInput} from 'react-native-paper';
-import Close from '../components/Close';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import Close from '../../components/Close';
 
-const LoginScreen = () => {
+const SignUpScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
+  const navigation = useNavigation();
   return (
     <SafeAreaView>
       <View style={styles.header}>
@@ -26,21 +25,8 @@ const LoginScreen = () => {
             justifyContent: 'space-between',
             marginBottom: 30,
           }}>
-          <Text style={{fontSize: 30}}>Sign in</Text>
+          <Text style={{fontSize: 30}}>Sign up</Text>
           <Close />
-        </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            marginBottom: 10,
-          }}>
-          <Text style={{marginRight: 5, fontSize: 15}}>
-            Don't have an account?
-          </Text>
-          <TouchableOpacity onPress={() => navigation.navigate('SignUpScreen')}>
-            <Text>Create now</Text>
-            <Divider color="black" />
-          </TouchableOpacity>
         </View>
       </View>
       <View style={styles.loginForm}>
@@ -61,7 +47,7 @@ const LoginScreen = () => {
             value={password}
             secureTextEntry
             onChangeText={password => setPassword(password)}
-            // @ts-expect-error TS(2322): Type '{ label: string; value: string; secureTextEn... Remove this comment to see the full error message
+            // @ts-expect-error TS(2322): Type '{ label: string; value: string; onChangeText... Remove this comment to see the full error message
             backgroundColor="#ffffff"
             style={{height: 60}}
             activeUnderlineColor="#2474ff"
@@ -69,21 +55,15 @@ const LoginScreen = () => {
         </View>
         <TouchableOpacity style={styles.button}>
           <Text style={{color: 'white', fontWeight: 'bold', fontSize: 20}}>
-            Sign in
+            Sign up
           </Text>
         </TouchableOpacity>
-        <View style={{justifyContent: 'center', alignItems: 'center'}}>
-          <TouchableOpacity>
-            <Text>Forgot your password?</Text>
-            <Divider color="black" />
-          </TouchableOpacity>
-        </View>
       </View>
     </SafeAreaView>
   );
 };
 
-export default LoginScreen;
+export default SignUpScreen;
 
 const styles = StyleSheet.create({
   header: {

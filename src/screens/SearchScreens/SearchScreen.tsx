@@ -9,9 +9,9 @@ import {
   StyleSheet,
   ScrollView,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome6';
-import SearchCategoryOption from '../components/SearchCategoryOption';
+import SearchCategoryOption from '../../components/SearchCategoryOption';
 
 const categories = [
   {
@@ -93,6 +93,7 @@ const SearchScreen = () => {
           </View>
         )}
         <TextInput
+          showSoftInputOnFocus={true}
           placeholder="Search Products..."
           onFocus={handleSearchFocus}
           onBlur={handleSearchBlur}

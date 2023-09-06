@@ -26,27 +26,27 @@ const Carousel: React.FC = () => {
   const carouselData: CarouselItem[] = [
     {
       id: '01',
-      image: require('../images/home1.jpg'),
+      image: require('../assets/images/home1.jpg'),
       title: 'This is image',
     },
     {
       id: '02',
-      image: require('../images/home5.jpg'),
+      image: require('../assets/images/home5.jpg'),
       title: 'This is image',
     },
     {
       id: '03',
-      image: require('../images/home2.jpg'),
+      image: require('../assets/images/home2.jpg'),
       title: 'This is image',
     },
     {
       id: '04',
-      image: require('../images/home3.jpg'),
+      image: require('../assets/images/home3.jpg'),
       title: 'This is image',
     },
     {
       id: '05',
-      image: require('../images/home4.jpg'),
+      image: require('../assets/images/home4.jpg'),
       title: 'This is image',
     },
   ];

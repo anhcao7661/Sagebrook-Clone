@@ -8,9 +8,9 @@ import {
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome6';
-import Close from '../components/Close';
+import Close from '../../components/Close';
 
-const OrderScreen = () => {
+const ClaimScreen = () => {
   const navigation = useNavigation();
   return (
     <SafeAreaView>
@@ -21,7 +21,7 @@ const OrderScreen = () => {
             justifyContent: 'space-between',
             marginBottom: 30,
           }}>
-          <Text style={{fontSize: 30}}>Order</Text>
+          <Text style={{fontSize: 30}}>Claim</Text>
           <Close />
         </View>
       </View>
@@ -29,7 +29,7 @@ const OrderScreen = () => {
   );
 };
 
-export default OrderScreen;
+export default ClaimScreen;
 
 const styles = StyleSheet.create({
   header: {

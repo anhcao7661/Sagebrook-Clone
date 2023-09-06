@@ -8,9 +8,9 @@ import {
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome6';
-import Close from '../components/Close';
+import Close from '../../components/Close';
 
-const AddressBookScreen = () => {
+const EditProfileScreen = () => {
   const navigation = useNavigation();
   return (
     <SafeAreaView>
@@ -21,7 +21,7 @@ const AddressBookScreen = () => {
             justifyContent: 'space-between',
             marginBottom: 30,
           }}>
-          <Text style={{fontSize: 30}}>AddressBookScreen</Text>
+          <Text style={{fontSize: 30}}>Profile</Text>
           <Close />
         </View>
       </View>
@@ -29,7 +29,7 @@ const AddressBookScreen = () => {
   );
 };
 
-export default AddressBookScreen;
+export default EditProfileScreen;
 
 const styles = StyleSheet.create({
   header: {

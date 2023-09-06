@@ -8,9 +8,9 @@ import {
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome6';
-import Close from '../components/Close';
+import Close from '../../components/Close';
 
-const NotificationScreen = () => {
+const RecentlyViewScreen = () => {
   const navigation = useNavigation();
   return (
     <SafeAreaView>
@@ -21,7 +21,7 @@ const NotificationScreen = () => {
             justifyContent: 'space-between',
             marginBottom: 30,
           }}>
-          <Text style={{fontSize: 30}}>NotificationScreen</Text>
+          <Text style={{fontSize: 30}}>RecentlyViewScreen</Text>
           <Close />
         </View>
       </View>
@@ -29,7 +29,7 @@ const NotificationScreen = () => {
   );
 };
 
-export default NotificationScreen;
+export default RecentlyViewScreen;
 
 const styles = StyleSheet.create({
   header: {

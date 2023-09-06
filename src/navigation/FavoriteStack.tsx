@@ -1,6 +1,6 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import FavoriteScreen from '../screens/FavoriteScreen';
+import FavoriteScreen from '../screens/FavoriteScreens/FavoriteScreen';
 
 const Stack = createNativeStackNavigator();
 

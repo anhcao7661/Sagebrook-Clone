@@ -8,12 +8,14 @@ import {
   Text,
   View,
 } from 'react-native';
-import Carousel from '../components/Carousel';
+
 import {TouchableOpacity} from 'react-native';
-import CategoryContainer from '../components/CategoryContainer';
+
 import Icon from 'react-native-vector-icons/FontAwesome6';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import CategoryContainer from '../../components/CategoryContainer';
+import Carousel from '../../components/Carousel';
 
 const HomeScreen = () => {
   const screenWidth = Dimensions.get('window').width;
@@ -42,40 +44,40 @@ const HomeScreen = () => {
         <View style={{marginTop: 5}}>
           <CategoryContainer
             screenWidth={screenWidth}
-            imageSource={require('../images/Home.jpg')}
+            imageSource={require('../../assets/images/Home.jpg')}
           />
           <View style={{flexDirection: 'row', display: 'flex'}}>
             <CategoryContainer
               screenWidth={screenWidth / 2}
-              imageSource={require('../images/home2.jpg')}
+              imageSource={require('../../assets/images/home2.jpg')}
             />
             <CategoryContainer
               screenWidth={screenWidth / 2}
-              imageSource={require('../images/home1.jpg')}
+              imageSource={require('../../assets/images/home1.jpg')}
             />
           </View>
           <View style={{flexDirection: 'row'}}>
             <CategoryContainer
               screenWidth={screenWidth / 2}
-              imageSource={require('../images/home10.jpg')}
+              imageSource={require('../../assets/images/home10.jpg')}
             />
             <CategoryContainer
               screenWidth={screenWidth / 2}
-              imageSource={require('../images/home9.jpg')}
+              imageSource={require('../../assets/images/home9.jpg')}
             />
           </View>
           <CategoryContainer
             screenWidth={screenWidth}
-            imageSource={require('../images/home8.jpg')}
+            imageSource={require('../../assets/images/home8.jpg')}
           />
           <View style={{flexDirection: 'row'}}>
             <CategoryContainer
               screenWidth={screenWidth / 2}
-              imageSource={require('../images/home7.jpg')}
+              imageSource={require('../../assets/images/home7.jpg')}
             />
             <CategoryContainer
               screenWidth={screenWidth / 2}
-              imageSource={require('../images/home6.jpg')}
+              imageSource={require('../../assets/images/home6.jpg')}
             />
           </View>
         </View>

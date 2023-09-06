@@ -5,57 +5,69 @@ import {
   TouchableOpacity,
   StyleSheet,
   ScrollView,
+  Dimensions,
 } from 'react-native';
 import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome6';
-import {useNavigation} from '@react-navigation/native';
+import {ParamListBase, useNavigation} from '@react-navigation/native';
+import {SceneMap, TabBar, TabView} from 'react-native-tab-view';
+import CategoryScreen from './CategoryScreen';
+import {CategoryScreenProps} from '../types/categoryScreenProps';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
-type ProductsScreenProps = {
-  categoryId: string;
-  category: string;
+type Route = {
+  key: string;
+  title: string;
 };
 
-const categories = [
-  'Category 1',
-  'Category 2',
-  'Category 3',
-  'Category 4',
-  'Category 5',
-  'Category 6',
+const initialLayout = {width: Dimensions.get('window').width};
+
+const Categories: Route[] = [
+  {key: 'category1', title: 'Category 1'},
+  {key: 'category2', title: 'Category 2'},
+  {key: 'category3', title: 'Category 3'},
+  {key: 'category4', title: 'Category 4'},
+  {key: 'category5', title: 'Category 5'},
 ];
 
+const renderScene = SceneMap(
+  Categories.reduce((scenes, category) => {
+    scenes[category.key] = () => <CategoryScreen category={category.title} />;
+    return scenes;
+  }, {} as Record<string, React.ComponentType<CategoryScreenProps>>),
+);
+
 const ProductsScreen = () => {
-  const navigation = useNavigation();
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
+  const [index, setIndex] = useState(0);
+
+  const renderTabBar = (props: any) => (
+    <TabBar
+      {...props}
+      scrollEnabled={true} // Enable scroll for the tab bar
+      indicatorStyle={{backgroundColor: 'green'}}
+      style={{backgroundColor: 'white'}}
+      labelStyle={{color: 'black'}}
+    />
+  );
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{flex: 1}}>
       <View style={styles.container}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Icon name="arrow-left" size={20} style={styles.icon} />
         </TouchableOpacity>
-        <Text style={{fontSize: 20, fontWeight: 'bold'}}>Categories</Text>
-        <TouchableOpacity>
+        <Text style={{fontSize: 20, fontWeight: 'bold'}}>Products</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('FilterScreen')}>
           <Icon name="bars-staggered" size={20} style={styles.icon} />
         </TouchableOpacity>
       </View>
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={selectedCategory !== ''}>
-        {categories.map((category, index) => (
-          <View
-            key={index}
-            style={[
-              styles.categoryContainer,
-              selectedCategory === category && styles.selectedCategory,
-            ]}>
-            <Text
-              style={styles.categoryText}
-              onPress={() => setSelectedCategory(category)}>
-              {category}
-            </Text>
-          </View>
-        ))}
-      </ScrollView>
+      <TabView
+        navigationState={{index, routes: Categories}}
+        renderScene={renderScene}
+        onIndexChange={setIndex}
+        initialLayout={initialLayout}
+        renderTabBar={renderTabBar}
+      />
     </SafeAreaView>
   );
 };
@@ -81,18 +93,5 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 2,
     justifyContent: 'space-between',
-  },
-  categoryContainer: {
-    padding: 10,
-    backgroundColor: 'lightgray',
-    marginRight: 10,
-    borderRadius: 8,
-  },
-  selectedCategory: {
-    backgroundColor: 'green',
-  },
-  categoryText: {
-    fontSize: 16,
-    fontWeight: 'bold',
   },
 });

@@ -1,16 +1,16 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import AccountScreen from '../screens/AccountScreen';
-import LoginScreen from '../screens/LoginScreen';
-import EditProfileScreen from '../screens/EditProfileScreen';
-import CustomerServiceScreen from '../screens/CustomerServiceScreen';
-import NotificationScreen from '../screens/NotificationScreen';
-import AddressBookScreen from '../screens/AddressBookScreen';
-import RecentlyViewScreen from '../screens/RecentlyViewScreen';
-import OrderScreen from '../screens/OrderScreen';
-import InvoiceScreen from '../screens/InvoiceScreen';
-import ClaimScreen from '../screens/ClaimScreen';
-import SignUpScreen from '../screens/SignUpScreen';
+import AccountScreen from '../screens/AccountScreens/AccountScreen';
+import LoginScreen from '../screens/AccountScreens/LoginScreen';
+import EditProfileScreen from '../screens/AccountScreens/EditProfileScreen';
+import CustomerServiceScreen from '../screens/AccountScreens/CustomerServiceScreen';
+import NotificationScreen from '../screens/AccountScreens/NotificationScreen';
+import AddressBookScreen from '../screens/AccountScreens/AddressBookScreen';
+import RecentlyViewScreen from '../screens/AccountScreens/RecentlyViewScreen';
+import OrderScreen from '../screens/AccountScreens/OrderScreen';
+import InvoiceScreen from '../screens/AccountScreens/InvoiceScreen';
+import ClaimScreen from '../screens/AccountScreens/ClaimScreen';
+import SignUpScreen from '../screens/AccountScreens/SignUpScreen';
 
 const Stack = createNativeStackNavigator();
 
